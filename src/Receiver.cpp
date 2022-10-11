@@ -1,5 +1,5 @@
 /*
-  Morse.cpp - Library for reading PWM value form an rc reciver
+  Receiver.cpp - Library for reading PWM value form an rc reciver
   Created by Nils Lahaye, 2021.
   Released into the public domain.
 */
