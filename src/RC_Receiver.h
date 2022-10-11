@@ -1,16 +1,16 @@
 /*
-  Receiver.h - Library for reading PWM value form an rc reciver
+  RC_Receiver.h - Library for reading PWM value form an rc reciver
   Created by Nils Lahaye, 2021.
   Released into the public domain.
 */
-#ifndef Receiver_h
-#define Receiver_h
+#ifndef RC_Receiver_h
+#define RC_Receiver_h
 
 #include "Arduino.h"
 
 #define minMaxLength 2
 
-class Receiver
+class RC_Receiver
 {
     public:
         Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4, uint8_t ch5, uint8_t ch6, uint8_t ch7, uint8_t ch8); //Set the inputs pins for 8 ch

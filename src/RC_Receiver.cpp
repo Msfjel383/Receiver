@@ -1,11 +1,11 @@
 /*
-  Receiver.cpp - Library for reading PWM value form an rc reciver
+  RC_Receiver.cpp - Library for reading PWM value form an rc reciver
   Created by Nils Lahaye, 2021.
   Released into the public domain.
 */
 
 #include "Arduino.h"
-#include "Receiver.h"
+#include "RC_Receiver.h"
 
 #define minMaxLength 2
 
