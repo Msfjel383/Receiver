@@ -17,7 +17,7 @@ See [arduino official guide](https://www.arduino.cc/en/guide/libraries)
 ## How to use
 ### Import the library 
 ```arduino
-#include <Receiver.h>
+#include <RC_Receiver.h>
 ```
 
 ### Initalise the receiver

@@ -6,7 +6,7 @@
  * This example code is in the public domain.
  */
 
-#include <Receiver.h>
+#include <RC_Receiver.h>
 
 //Create an instance of a receiver
 //You can put up to 8 channels pin with one receiver instance
