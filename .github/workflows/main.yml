@@ -1,7 +1,16 @@
 on: [push, pull_request]
+
 jobs:
   lint:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: arduino/arduino-lint-action@v1
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Arduino Lint
+        uses: arduino/arduino-lint-action@v1
+        with:
+          compliance: specification
+          library-manager: update
+          project-type: library
