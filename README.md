@@ -1,5 +1,8 @@
 
 # Receiver Library
+
+[![Check Build](https://github.com/Nilon123456789/Receiver/actions/workflows/main.yml/badge.svg)](https://github.com/Nilon123456789/Receiver/actions/workflows/main.yml)
+
  Arduino Library for reading rc reciver values
 
 ## Installing the Library
