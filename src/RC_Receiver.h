@@ -13,14 +13,14 @@
 class RC_Receiver
 {
     public:
-        Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4, uint8_t ch5, uint8_t ch6, uint8_t ch7, uint8_t ch8); //Set the inputs pins for 8 ch
-        Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4, uint8_t ch5, uint8_t ch6, uint8_t ch7); //Set the inputs pins for 7 ch
-        Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4, uint8_t ch5, uint8_t ch6); //Set the inputs pins for 6 ch
-        Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4, uint8_t ch5); //Set the inputs pins for 5 ch
-        Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4); //Set the inputs pins for 4 ch
-        Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3); //Set the inputs pins for 3 ch
-        Receiver(uint8_t ch1, uint8_t ch2); //Set the inputs pins for 2 ch
-        Receiver(uint8_t ch1); //Set the inputs pins for 1 ch
+        RC_Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4, uint8_t ch5, uint8_t ch6, uint8_t ch7, uint8_t ch8); //Set the inputs pins for 8 ch
+        RC_Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4, uint8_t ch5, uint8_t ch6, uint8_t ch7); //Set the inputs pins for 7 ch
+        RC_Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4, uint8_t ch5, uint8_t ch6); //Set the inputs pins for 6 ch
+        RC_Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4, uint8_t ch5); //Set the inputs pins for 5 ch
+        RC_Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3, uint8_t ch4); //Set the inputs pins for 4 ch
+        RC_Receiver(uint8_t ch1, uint8_t ch2, uint8_t ch3); //Set the inputs pins for 3 ch
+        RC_Receiver(uint8_t ch1, uint8_t ch2); //Set the inputs pins for 2 ch
+        RC_Receiver(uint8_t ch1); //Set the inputs pins for 1 ch
 
         void setMinMax(int minMax[][minMaxLength]);//Setting the MinMax val
 

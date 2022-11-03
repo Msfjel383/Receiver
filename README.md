@@ -26,7 +26,7 @@ See [arduino official guide](https://www.arduino.cc/en/guide/libraries)
 ### Initalise the receiver
 you can use fewer channels but the max is 8 per instance
 ```c++
-Receiver receiver('ch1 pin','ch2 pin','ch3 pin','ch4 pin','ch5 pin','ch6 pin','ch7 pin','ch8 pin');
+RC_Receiver receiver('ch1 pin','ch2 pin','ch3 pin','ch4 pin','ch5 pin','ch6 pin','ch7 pin','ch8 pin');
 ````
 
 ### Set custom Min and Max value for the mapping

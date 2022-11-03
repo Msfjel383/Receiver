@@ -10,8 +10,8 @@
 
 //Create an instance of a receiver
 //You can put up to 8 channels pin with one receiver instance
-//ex : Receiver receiver('ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8',);
-Receiver receiver(2,3,4,5);
+//ex : RC_Receiver receiver('ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8',);
+RC_Receiver receiver(2,3,4,5);
 
 //Channel min and max value
 //Use the RC_raw script to get the min max val by moving your joystick up and down

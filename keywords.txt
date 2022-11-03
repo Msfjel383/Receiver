@@ -26,18 +26,18 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-Receiver  KEYWORD1
+RC_Receiver KEYWORD1    RC_Receiver
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-setMinMax KEYWORD2
-init  KEYWORD2
-getRaw  KEYWORD2
+setMinMax   KEYWORD2
+init	KEYWORD2
+getRaw	KEYWORD2
 getMap  KEYWORD2
 
 ######################################
 # Constants (LITERAL1)
 #######################################
-KEY_NONE  LITERAL1
+KEY_NONE    LITERAL1
 
