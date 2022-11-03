@@ -6,6 +6,8 @@
  Arduino Library for reading rc reciver values
 
 ## Installing the Library
+### Arduino Library manager
+Open the arduino library manager and search for RC_Receiver created by Nils Lahaye and hit install
 ### Release 
 Go to the [release page](https://github.com/Nilon123456789/Receiver/releases) to get the latest satable release. 
 Then download the source.zip 

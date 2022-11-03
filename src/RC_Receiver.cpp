@@ -1,6 +1,6 @@
 /*
   RC_Receiver.cpp - Library for reading PWM value form an rc reciver
-  Created by Nils Lahaye, 2021.
+  Created by Nils Lahaye, 2022.
   Released into the public domain.
 */
 
