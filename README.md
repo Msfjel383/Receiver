@@ -1,6 +1,5 @@
-# Modified to be non blocking.
+# Modified to be non blocking to keep loop fast.
 
-Untested!
 
 # Receiver Library
 
