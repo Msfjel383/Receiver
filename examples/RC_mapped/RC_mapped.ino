@@ -11,7 +11,8 @@
 //Create an instance of a receiver
 //You can put up to 8 channels pin with one receiver instance
 //ex : RC_Receiver receiver('ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8',);
-RC_Receiver receiver({2,3,4,5});
+std::vector<uint8_t> pins = {7, 8, 4, 5}; // Beispiel-Pins
+RC_Receiver receiver(pins);
 
 //Channel min and max value
 //Use the RC_raw script to get the min max val by moving your joystick up and down
@@ -21,7 +22,7 @@ RC_Receiver receiver({2,3,4,5});
 //Invert the min and max val to reverse
 int minMax[8][2] = 
 { 
-	{2020,1010}, 
+	{1010,2020}, 
 	{1010,2020}, 
 	{1010,2020}, 
 	{1010,2020}
@@ -31,7 +32,7 @@ int minMax[8][2] =
 void setup() {
   //Starting Serial
   Serial.begin(9600);
-  receiver.init(); //init the receiver
+  receiver.init(pins); //init the receiver
   receiver.setMinMax(minMax); //set the min and max value for each channels
   
   Serial.println("Ready");

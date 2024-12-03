@@ -12,7 +12,6 @@ RC_Receiver* RC_Receiver::instance = nullptr;
 // Constructor: Initialize with given pins
 RC_Receiver::RC_Receiver(const std::vector<uint8_t>& pins) {
     instance = this;
-    init(pins);
 }
 
 // Initialization function
