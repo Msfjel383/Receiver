@@ -9,19 +9,25 @@
 #define RC_Receiver_h
 
 #include "Arduino.h"
-
-#define minMaxLength 2
-#define MAX_CHANNELS 8
+#include <vector>
 
 class RC_Receiver {
 public:
-    RC_Receiver(std::initializer_list<uint8_t> channels); // Constructor for 1-8 channels
-    void setMinMax(int minMax[][minMaxLength]);          // Set Min/Max values
-    long getRaw(int ch);                                 // Return raw pulse width
-    long getMap(int ch);                                 // Return mapped value (0 to 100)
+    // Constructor: Accepts a vector of up to 8 channel pins
+    RC_Receiver(const std::vector<uint8_t>& pins);
+
+    // Set minimum and maximum values for each channel
+    void setMinMax(int minMax[][2]);
+
+    // Get raw PWM value from a channel (1-indexed)
+    long getRaw(int channel);
+
+    // Get mapped PWM value (0 to 100) from a channel (1-indexed)
+    long getMap(int channel);
+
+    void init(const std::vector<uint8_t>& pins); // Initialization
 
 private:
-    static RC_Receiver* instance;                       // Global instance pointer
     static void handleInterrupt0();
     static void handleInterrupt1();
     static void handleInterrupt2();
@@ -31,14 +37,13 @@ private:
     static void handleInterrupt6();
     static void handleInterrupt7();
 
-    void handleInterrupt(uint8_t channel);
+    static RC_Receiver* instance;
 
-    uint8_t _ch_pin[MAX_CHANNELS] = {0};                 // Input pins (0 means unused)
-    int _minMax[MAX_CHANNELS][minMaxLength];             // Min/Max mapping values
-    volatile unsigned long pulseStartTime[MAX_CHANNELS] = {0};
-    volatile unsigned long pulseWidth[MAX_CHANNELS] = {0};
-    volatile bool pulseComplete[MAX_CHANNELS] = {false};
-    uint8_t _numChannels = 0;                            // Number of channels used
+    std::vector<uint8_t> _ch_pins; // Pins for channels
+    int _minMax[8][2]; // Min-max values for mapping
+    volatile unsigned long _pulseStartTime[8]; // Start times for pulses
+    volatile unsigned long _pulseWidth[8]; // Pulse widths
+    volatile bool _pulseComplete[8]; // Pulse completion flags
 };
 
 #endif

@@ -24,10 +24,6 @@ int minMax[8][2] =
 	{2020,1010}, 
 	{1010,2020}, 
 	{1010,2020}, 
-	{1010,2020}, 
-	{1010,2020}, 
-	{1010,2020}, 
-	{1010,2020}, 
 	{1010,2020}
 };
 
@@ -35,7 +31,7 @@ int minMax[8][2] =
 void setup() {
   //Starting Serial
   Serial.begin(9600);
-
+  receiver.init(); //init the receiver
   receiver.setMinMax(minMax); //set the min and max value for each channels
   
   Serial.println("Ready");

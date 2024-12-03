@@ -17,6 +17,7 @@ RC_Receiver receiver({2,3,4,5});
 void setup() {
   //Starting Serial
   Serial.begin(9600);
+  receiver.init(); //init the receiver
   Serial.println("Ready");
 }
 
