@@ -34,22 +34,35 @@ int minMax[8][2] =
 
 void setup() {
   //Starting Serial
-  Serial.begin(9600);
+  Serial.begin(250000);
 
   receiver.setMinMax(minMax); //set the min and max value for each channels
   
   Serial.println("Ready");
 }
-
+unsigned long looptime;
+unsigned long result;
+int ch1;
+int ch2;
+int ch3;
+int ch4;
 void loop() {
+  looptime = micros();
+   ch1 = receiver.getMap(1);
+   ch2 = receiver.getMap(2);
+   ch3 = receiver.getMap(3);
+   ch4 = receiver.getMap(4);
+  result = micros()-looptime;
+   delay(1000);
    //prints receiver mapped val
-   Serial.print(receiver.getMap(1));
+   Serial.print(ch1);
    Serial.print("\t");  
-   Serial.print(receiver.getMap(2));
+   Serial.print(ch2);
    Serial.print("\t");  
-   Serial.print(receiver.getMap(3));
+   Serial.print(ch3);
    Serial.print("\t");  
-   Serial.print(receiver.getMap(4));
+   Serial.print(ch4);
    Serial.print("\t");  
    Serial.println();
+   Serial.println(result);
 }
