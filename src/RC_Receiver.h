@@ -1,3 +1,10 @@
+/*
+  RC_Receiver.h - Library for reading PWM value form an rc reciver
+  Created by Nils Lahaye, 2022.
+  Released into the public domain.
+  Modified by MS for non-blocking execution, 2024
+*/
+
 #ifndef RC_Receiver_h
 #define RC_Receiver_h
 

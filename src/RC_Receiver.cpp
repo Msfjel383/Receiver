@@ -1,3 +1,10 @@
+/*
+  RC_Receiver.cpp - Library for reading PWM value form an rc reciver
+  Created by Nils Lahaye, 2022.
+  Released into the public domain.
+  Modified by MS for non-blocking execution, 2024
+*/
+
 #include "RC_Receiver.h"
 
 // Define the static instance pointer
