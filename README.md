@@ -1,20 +1,15 @@
 # Modified to be non blocking to keep loop fast.
+This Library has been forged and modified to use interrupt pin for mesuring the signals frome an RC receiver. Resulting in nonblocking main loop execution.
+only works on ESP32 Bords, tested on ESP S3.
 
 
 # Receiver Library
 
 [![Check Build](https://github.com/Nilon123456789/Receiver/actions/workflows/main.yml/badge.svg)](https://github.com/Nilon123456789/Receiver/actions/workflows/main.yml)
 
- Arduino Library for reading rc reciver values
+ ESP32 Library for reading rc reciver values using interrupts
 
 ## Installing the Library
-### Arduino Library manager
-Open the arduino library manager and search for RC_Receiver created by Nils Lahaye and hit install
-### Release 
-Go to the [release page](https://github.com/Nilon123456789/Receiver/releases) to get the latest satable release. 
-Then download the source.zip 
-Then in the arduino IDE install the zip library
-See [arduino official guide](https://www.arduino.cc/en/guide/libraries)
 ### Form repo
 Clique the code button
 Then download as zip
