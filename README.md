@@ -60,7 +60,7 @@ Serial.print(receiver.getRaw(int ch));
 ```
 
 ### Get mapped values
-getMap(int ch) will return the mapped value (0 to 100) form the controller
+getMap(int ch) will return the mapped value (0 to 1000) form the controller
 The `ch` is the channel number
 ```c++
 Serial.print(receiver.getMap(int ch));

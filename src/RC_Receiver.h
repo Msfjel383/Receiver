@@ -19,17 +19,17 @@ public:
     // Destructor:
     ~RC_Receiver();
 
-    // Initialization
-    void init(std::vector<uint8_t> pins);
-    void init(std::vector<uint8_t> pins, int minMax[8][2]);
+    //initialize the receiver with the pins for each channel and the min max values
+    void init(std::vector<uint8_t> &pins);
+    void init(std::vector<uint8_t> &pins, std::vector<std::pair<uint16_t, uint16_t>> &minMax);
     
     // Set minimum and maximum values for each channel
-    void setMinMax(int minMax[][2]);
+    void setMinMax(std::vector<std::pair<uint16_t, uint16_t>> &minMax);
 
     // Get raw PWM value from a channel
     long getRaw(int channel);
 
-    // Get mapped PWM value (0 to 100) from a channel
+    // Get mapped PWM value (0 to 1000) from a channel
     long getMap(int channel);
 
 private:
@@ -40,7 +40,7 @@ private:
     static RC_Receiver* instance;
 
     std::vector<uint8_t> _ch_pins; // Pins for channels
-    int _minMax[8][2]; // Min-max values for mapping
+    std::vector<std::pair<uint16_t, uint16_t>> _minMax; // Min-max values for mapping
     volatile unsigned long _pulseStartTime[8]; // Start times for pulses
     volatile unsigned long _pulseWidth[8]; // Pulse widths
 };
