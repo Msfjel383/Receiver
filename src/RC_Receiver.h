@@ -10,40 +10,39 @@
 
 #include "Arduino.h"
 #include <vector>
+#include "driver/gpio.h"
 
 class RC_Receiver {
 public:
-    // Constructor: Accepts a vector of up to 8 channel pins
-    RC_Receiver(const std::vector<uint8_t>& pins);
+    // Constructor:
+    RC_Receiver();
+    // Destructor:
+    ~RC_Receiver();
 
+    // Initialization
+    void init(std::vector<uint8_t> pins);
+    void init(std::vector<uint8_t> pins, int minMax[8][2]);
+    
     // Set minimum and maximum values for each channel
     void setMinMax(int minMax[][2]);
 
-    // Get raw PWM value from a channel (1-indexed)
+    // Get raw PWM value from a channel
     long getRaw(int channel);
 
-    // Get mapped PWM value (0 to 100) from a channel (1-indexed)
+    // Get mapped PWM value (0 to 100) from a channel
     long getMap(int channel);
 
-    void init(const std::vector<uint8_t>& pins); // Initialization
-
 private:
-    static void handleInterrupt0();
-    static void handleInterrupt1();
-    static void handleInterrupt2();
-    static void handleInterrupt3();
-    static void handleInterrupt4();
-    static void handleInterrupt5();
-    static void handleInterrupt6();
-    static void handleInterrupt7();
-
+    static void handleInterrupt(void* arg);
+    //set the GPIO pin to input mode and enable interrupt
+    void configure_gpio_with_interrupt(uint8_t pin, uint8_t count);
+    //pointer to the instance of the class
     static RC_Receiver* instance;
 
     std::vector<uint8_t> _ch_pins; // Pins for channels
     int _minMax[8][2]; // Min-max values for mapping
     volatile unsigned long _pulseStartTime[8]; // Start times for pulses
     volatile unsigned long _pulseWidth[8]; // Pulse widths
-    volatile bool _pulseComplete[8]; // Pulse completion flags
 };
 
 #endif
