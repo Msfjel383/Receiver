@@ -42,8 +42,8 @@ private:
 
     std::vector<uint8_t> _ch_pins; // Pins for channels
     std::vector<std::pair<uint16_t, uint16_t>> _minMax; // Min-max values for mapping
-    volatile unsigned long _pulseStartTime[8]; // Start times for pulses
-    volatile unsigned long _pulseWidth[8]; // Pulse widths
+    volatile unsigned long _pulseStartTime[20]; // Start times for pulses
+    volatile unsigned long _pulseWidth[20]; // Pulse widths
 };
 
 #endif
