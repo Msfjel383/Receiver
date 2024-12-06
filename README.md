@@ -22,30 +22,30 @@ See [arduino official guide](https://www.arduino.cc/en/guide/libraries)
 ```
 
 ### Initalise the receiver
-you can use fewer channels but the max is 8 per instance
 ```c++
-RC_Receiver receiver('ch1 pin','ch2 pin','ch3 pin','ch4 pin','ch5 pin','ch6 pin','ch7 pin','ch8 pin');
+RC_Receiver receiver;
 ````
 
-### Set custom Min and Max value for the mapping
+### Set the Pins for each channel
+```c++
+std::vector<uint8_t> pins = {7, 8, 4, 5};
+````
+
+### Set custom Min and Max value for the mapping of eache channel
 Set custom values for the range of the controller.
 The value can be found by using the RC_raw example and moving the joystick to there min and max positon and reading the value
 Inverting the min and max will reverse the values 
 ```c++
-int minMax[8][2] = 
+std::vector<std::pair<uint16_t, uint16_t>> minMax = 
 {
-	{2020,1010}, 
-	{1010,2020}, 
-	{1010,2020}, 
-	{1010,2020}, 
-	{1010,2020}, 
-	{1010,2020}, 
-	{1010,2020}, 
-	{1010,2020}
+	{544,2400}, 
+	{544,2400}, 
+	{544,2400}, 
+	{544,2400} 
 };
 
 void setup() {
-	receiver.setMinMax(minMax);
+	receiver.init(pins, minMax);
 }
 
 ```

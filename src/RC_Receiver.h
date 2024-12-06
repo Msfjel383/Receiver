@@ -20,8 +20,8 @@ public:
     ~RC_Receiver();
 
     //initialize the receiver with the pins for each channel and the min max values
-    void init(std::vector<uint8_t> &pins);
-    void init(std::vector<uint8_t> &pins, std::vector<std::pair<uint16_t, uint16_t>> &minMax);
+    void init(std::vector<uint8_t> pins);
+    void init(std::vector<uint8_t> pins, std::vector<std::pair<uint16_t, uint16_t>> minMax);
     
     // Set minimum and maximum values for each channel
     void setMinMax(std::vector<std::pair<uint16_t, uint16_t>> &minMax);

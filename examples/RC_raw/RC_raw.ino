@@ -11,14 +11,11 @@
 //Create an instance of a receiver
 RC_Receiver receiver;
 
-//define the pins for each channel in this vector
-std::vector<uint8_t> pins = {7, 8, 4, 5};
-
 void setup() {
   //Starting Serial
   Serial.begin(9600);
-  //initialize the receiver with the pins for each channel and the min max values
-  receiver.init(pins);
+  //initialize the receiver with the pins for each channel
+  receiver.init({7, 8, 4, 5});
 
   Serial.println("Ready");
 }
