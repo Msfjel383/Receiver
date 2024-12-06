@@ -1,7 +1,7 @@
 # Modified to be non blocking to keep loop fast.
 This Library has been forked and modified to use interrupt pin for mesuring the signals frome an RC receiver. Resulting in fast nonblocking main loop execution.
 
-#works only on ESP32 Bords!
+## works only on ESP32 Bords!
 
 
 # ESP32 Receiver Library
