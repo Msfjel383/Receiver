@@ -33,6 +33,7 @@ public:
     long getMap(int channel);
 
 private:
+    static bool is_isr_service_installed; // Flag to check if ISR service is installed
     static void handleInterrupt(void* arg);
     //set the GPIO pin to input mode and enable interrupt
     void configure_gpio_with_interrupt(uint8_t pin, uint8_t count);

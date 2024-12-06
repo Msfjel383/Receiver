@@ -16,8 +16,10 @@ RC_Receiver::RC_Receiver() {
 // Destructor
 RC_Receiver::~RC_Receiver() {
     instance = nullptr;
+    // Disable interrupts
     for(auto i : _ch_pins){
         gpio_intr_disable((gpio_num_t)i);
+        gpio_set_intr_type((gpio_num_t)i, GPIO_INTR_DISABLE);
     }
 }
 
@@ -59,7 +61,7 @@ long RC_Receiver::getMap(int channel) {
 
 // Interrupt handler
 void IRAM_ATTR RC_Receiver::handleInterrupt(void* arg) {
-    // Pointer in uint8_t-Typ umwandeln
+    // Get the channel number from the argument
     uint8_t count = (uint8_t)(uintptr_t)arg;
     gpio_num_t pin = (gpio_num_t)instance->_ch_pins[count];
     if (gpio_get_level(pin) == HIGH) {
@@ -68,21 +70,26 @@ void IRAM_ATTR RC_Receiver::handleInterrupt(void* arg) {
         instance->_pulseWidth[count] = micros() - instance->_pulseStartTime[count];
     }
 }
+// Definition of the static variable to check if the ISR service is installed
+bool RC_Receiver::is_isr_service_installed = false;
 
-// Funktion zur Konfiguration des GPIO-Pins
+// Configure GPIO pin and interrupt
 void RC_Receiver::configure_gpio_with_interrupt(uint8_t pin, uint8_t count)  {
-    // GPIO-Pin konfigurieren
+    // GPIO-Konfiguration
     gpio_config_t io_conf = {
-        .pin_bit_mask = (1ULL << ((gpio_num_t)pin)),  // Pin festlegen
-        .mode = GPIO_MODE_INPUT,       // Als Eingabe konfigurieren
-        .pull_up_en = GPIO_PULLUP_DISABLE,  // Pull-Up deaktivieren
-        .pull_down_en = GPIO_PULLDOWN_DISABLE, // Pull-Down deaktivieren
-        .intr_type = GPIO_INTR_ANYEDGE // Interrupt bei jeder Flanke
+        .pin_bit_mask = (1ULL << ((gpio_num_t)pin)),  // Pin-Bitmaske
+        .mode = GPIO_MODE_INPUT,       //Define as input
+        .pull_up_en = GPIO_PULLUP_DISABLE,  // deaktivate pull-up
+        .pull_down_en = GPIO_PULLDOWN_DISABLE, // deaktivate pull-down
+        .intr_type = GPIO_INTR_ANYEDGE // Interupt by any edge
     };
-    // Konfiguration anwenden
+    // set GPIO with the configurations
     gpio_config(&io_conf);
-    // ISR-Service installieren (einmalig aufrufen, falls nicht schon geschehen)
-    gpio_install_isr_service(0);
-    // ISR-Handler für diesen GPIO-Pin hinzufügen
+    // install ISR service, if not already installed
+    if (!is_isr_service_installed) {
+        gpio_install_isr_service(0);
+        is_isr_service_installed = true;
+    }
+    //  Add ISR handler
     gpio_isr_handler_add((gpio_num_t)pin, handleInterrupt, (void *)count);
 }
