@@ -1,12 +1,10 @@
 # Modified to be non blocking to keep loop fast.
-This Library has been forged and modified to use interrupt pin for mesuring the signals frome an RC receiver. Resulting in nonblocking main loop execution.
+This Library has been forked and modified to use interrupt pin for mesuring the signals frome an RC receiver. Resulting in fast nonblocking main loop execution.
 
-only works on ESP32 Bords, tested on ESP32 S3.
+#works only on ESP32 Bords!
 
 
-# Receiver Library
-
-[![Check Build](https://github.com/Nilon123456789/Receiver/actions/workflows/main.yml/badge.svg)](https://github.com/Nilon123456789/Receiver/actions/workflows/main.yml)
+# ESP32 Receiver Library
 
  ESP32 Library for reading rc reciver values using interrupts
 
