@@ -9,6 +9,7 @@
 #define RC_Receiver_h
 
 #include "Arduino.h"
+#include <array>
 #include "driver/gpio.h"
 
 class RC_Receiver {
@@ -19,11 +20,11 @@ public:
     ~RC_Receiver();
 
     //initialize the receiver with the pins for each channel and the min max values
-    void init(uint8_t pins[20]);
-    void init(uint8_t pins[20], std::pair<uint16_t, uint16_t> minMax[20]);
+    void init(std::array<uint8_t,20> pins);
+    void init(std::array<uint8_t,20> pins, std::array<std::pair<uint16_t, uint16_t>,20> minMax);
     
     // Set minimum and maximum values for each channel
-    void setMinMax(std::pair<uint16_t, uint16_t> minMax[20]);
+    void setMinMax(std::array<std::pair<uint16_t, uint16_t>,20> minMax);
 
     // Get raw PWM value from a channel
     long getRaw(int channel);
@@ -39,9 +40,9 @@ private:
     //pointer to the instance of the class
     static RC_Receiver* instance;
 
-    uint8_t _ch_pins[20]; // Pins for channels
-    std::pair<uint16_t, uint16_t> _minMax[20]; // Min-max values for mapping
-    uint_8t _ch_count; // Number of channels
+    std::array<uint8_t,20> _ch_pins; // Pins for channels
+    std::array<std::pair<uint16_t, uint16_t>,20> _minMax; // Min-max values for mapping
+    uint8_t _ch_count; // Number of channels
     volatile unsigned long _pulseStartTime[20]; // Start times for pulses
     volatile unsigned long _pulseWidth[20]; // Pulse widths
 };

@@ -24,14 +24,14 @@ RC_Receiver::~RC_Receiver() {
 }
 
 // Initialization function
-void RC_Receiver::init(uint8_t pins[20], std::pair<uint16_t, uint16_t> minMax[20]) {
+void RC_Receiver::init(std::array<uint8_t,20> pins, std::array<std::pair<uint16_t, uint16_t>,20> minMax) {
     // Set pins
     init(pins);
     // Set min-max values
     setMinMax(minMax);
 }
 
-void RC_Receiver::init(uint8_t pins[20]) { 
+void RC_Receiver::init(std::array<uint8_t,20> pins) { 
     // Set pins
     _ch_pins = pins;
     // Set number of channels
@@ -45,7 +45,7 @@ void RC_Receiver::init(uint8_t pins[20]) {
 }
 
 // Set new min-max values
-void RC_Receiver::setMinMax(std::pair<uint16_t, uint16_t> minMax[20]) {
+void RC_Receiver::setMinMax(std::array<std::pair<uint16_t, uint16_t>,20> minMax) {
     _minMax = minMax;
 }
 
