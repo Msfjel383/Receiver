@@ -24,25 +24,28 @@ RC_Receiver::~RC_Receiver() {
 }
 
 // Initialization function
-void RC_Receiver::init(std::vector<uint8_t> pins, std::vector<std::pair<uint16_t, uint16_t>> minMax) {
+void RC_Receiver::init(uint8_t pins[20], std::pair<uint16_t, uint16_t> minMax[20]) {
     // Set pins
     init(pins);
     // Set min-max values
     setMinMax(minMax);
 }
 
-void RC_Receiver::init(std::vector<uint8_t> pins) { 
+void RC_Receiver::init(uint8_t pins[20]) { 
     // Set pins
     _ch_pins = pins;
-    uint8_t count = 0;
-    for (auto i : pins){
-        configure_gpio_with_interrupt(i, count);
-        count++;
+    // Set number of channels
+    for (auto i = 0; i < sizeof(pins); i++){
+        configure_gpio_with_interrupt(_ch_pins[i], i);
+        if(pins[i] == 0){
+            _ch_count = i;
+            break;
+        }
     }
 }
 
 // Set new min-max values
-void RC_Receiver::setMinMax(std::vector<std::pair<uint16_t, uint16_t>> &minMax) {
+void RC_Receiver::setMinMax(std::pair<uint16_t, uint16_t> minMax[20]) {
     _minMax = minMax;
 }
 

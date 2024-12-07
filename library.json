@@ -1,0 +1,33 @@
+{
+    "name": "RC Receiver",
+    "keywords": "RC,Receiver,radio",
+    "description": "Reads the PWM signal from RC receivers.",
+    "authors":
+    {
+        "name": "Nils Lahaye",
+        "email": "nils.lahaye@icloud.com",
+        "url": "https://github.com/Nilon123456789/Receiver.git"
+    },
+    "version": "1.0.2",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/Nilon123456789/Receiver.git"
+    },
+    "export":
+    {
+        "include": 
+        [
+            "src/*.cpp",
+            "examples/*",
+            "src/*.h"
+        ]
+    },
+    "frameworks": "arduino",
+    "platforms": "*",
+    "examples": [
+        "[Ee]xamples/*/*.ino"
+    ],
+    "dependencies": {
+    }
+}
